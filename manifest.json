@@ -11,6 +11,12 @@
     },
     "default_popup": "popup.html"
   },
+  "web_accessible_resources": [
+    {
+      "matches": ["*"],
+      "resources": ["wallpapers/cats/.jpg", "wallpapers/dogs/.jpg"]
+    }
+  ],
   "background": {
     "service_worker": "src/background.ts",
     "type": "module"
