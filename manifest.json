@@ -14,7 +14,7 @@
   "web_accessible_resources": [
     {
       "matches": ["*"],
-      "resources": ["wallpapers/cats/.jpg", "wallpapers/dogs/.jpg"]
+      "resources": ["wallpapers/cats/*.jpg", "wallpapers/dogs/*.jpg"]
     }
   ],
   "background": {
