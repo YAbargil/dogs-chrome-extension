@@ -13,7 +13,7 @@
   },
   "web_accessible_resources": [
     {
-      "matches": ["*"],
+      "matches": ["<all_urls>"],
       "resources": ["wallpapers/cats/*.jpg", "wallpapers/dogs/*.jpg"]
     }
   ],
