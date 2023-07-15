@@ -3,7 +3,7 @@ import "./App.css";
 import Weather from "./Weather";
 import Search from "./Search";
 
-const imgLength = 9;
+const imgLength = 10;
 
 function App() {
   const [imageUrl, setImageUrl] = useState("");
@@ -11,7 +11,6 @@ function App() {
   // const [lastSeenDate, setLastSeenDate] = useState("");
   const [imageIndex, setImageIndex] = useState<number | null>(null);
   const [favoritePet, setFavoritePet] = useState("");
-
   const incImageIndex = (idx: number) => (idx + 1) % imgLength;
 
   const initChromeStorage = async () => {
@@ -48,15 +47,17 @@ function App() {
       } else {
         const currentDate = new Date().toDateString();
         const currentImageIndex = await chrome.storage.local.get("imageIndex");
-
+        let temp = currentImageIndex["imageIndex"];
         //24h change since last visit
         if (res !== currentDate) {
-          const newImageIndex = incImageIndex(currentImageIndex["imageIndex"]);
+          const newImageIndex = incImageIndex(temp);
           await chrome.storage.local.set({ lastSeenDate: currentDate });
           await chrome.storage.local.set({ imageIndex: newImageIndex });
+          temp = newImageIndex;
         }
+
         // setLastSeenDate(currentDate);
-        setImageIndex(currentImageIndex["imageIndex"]);
+        setImageIndex(temp);
       }
     });
 

@@ -8,10 +8,11 @@ function saveFavoritePet() {
   const favoritePet = catChoice.checked ? "cat" : "dog";
   console.log(favoritePet);
   chrome.runtime.sendMessage(
-    { type: "SAVE_FAVORITE_PET", favoritePet },
-    function () {
-      console.log("Favorite pet saved:", favoritePet);
-    }
+    { type: "SAVE_FAVORITE_PET", favoritePet }
+    // ,
+    // function () {
+    //   console.log("Favorite pet saved:", favoritePet);
+    // }
   );
 }
 

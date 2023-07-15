@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message.type === "SAVE_FAVORITE_PET") {
     console.log("[animal lover extension] favorite pet has been modified");
     chrome.storage.local.set({ favoritePet: message.favoritePet }, function () {
-      sendResponse(); // Acknowledge the saving of favorite pet
+      // sendResponse(); // Acknowledge the saving of favorite pet
     });
   }
 });
